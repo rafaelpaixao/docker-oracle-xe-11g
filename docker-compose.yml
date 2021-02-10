@@ -1,0 +1,16 @@
+version: '2'
+services:
+  oracle-11g:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oracle-11g
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
+    volumes:
+      - oraclexe:/u01/app/oracle
+    ports:
+      - 49161:1521
+      - 49162:8080
+volumes:
+  oraclexe:
